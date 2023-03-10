@@ -13,7 +13,7 @@ class ThumbnailCreator {
 		private readonly string $thumbnailPrefix
 	) {}
 
-	private function joinPaths(...$parts) {
+	private function joinPaths(string ...$parts): string {
 		if (count($parts) === 0) return '';
 
 		$prefix = ($parts[0] === DIRECTORY_SEPARATOR) ? DIRECTORY_SEPARATOR : '';
