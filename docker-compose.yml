@@ -20,7 +20,6 @@ services:
     php:
         build: .docker
         volumes:
-            - ./.docker/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
             - .:/thumbnail-srv
             - thumbnails:/thumbnails
             - /Volumes/Datentonne/Rollenspiel:/pdf:ro
