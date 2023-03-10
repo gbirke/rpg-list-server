@@ -63,7 +63,7 @@ class ThumbnailCreator {
 		return $finalPath === false || !str_starts_with($finalPath, $this->sourceDir);
 	}
 
-	private function createOutputDirectoryIfNeeded(string $outputFile) {
+	private function createOutputDirectoryIfNeeded(string $outputFile): void {
 		$destinationPath = dirname($outputFile);
 		if (!file_exists($destinationPath)) {
 			mkdir($destinationPath, 0777, true );
@@ -83,10 +83,9 @@ if ($request->query->has('thumbnail_created')) {
 $path = urldecode($request->getPathInfo());
 
 $thumbnailer = new ThumbnailCreator(
-	// TODO use dotenv to initialize
-	'/pdf',
-	'./thumbnails',
-	'/thumbnails/'
+	sourceDir: '/pdf',
+	thumbnailDir: '/thumbnails',
+	thumbnailPrefix: '/thumbnails/'
 );
 $response = $thumbnailer->createThumbnail($path);
 
